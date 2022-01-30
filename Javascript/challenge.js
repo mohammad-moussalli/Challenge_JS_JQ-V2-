@@ -1,6 +1,6 @@
 var win = false;
 var continue_playing = false;
-var level = 1;
+var level = 0;
 var buttons_memory = [];
 var pressed_buttons = [];
 var green_button = document.getElementById("green");
@@ -13,7 +13,7 @@ document.getElementsByTagName("body")[0].style.backgroundColor = "#021c39";
 function startGame(){
     continue_playing = true;
     if(win == false){
-        document.getElementById("title").innerHTML = `Level ${level}`;
+        document.getElementById("title").innerHTML = `Level 1`;
         randomButton();
     }
 }
@@ -105,17 +105,14 @@ function randomButton(){
     }
     youWin();
     pressed_buttons = [];
-    console.log(buttons_memory);
 }
 
 function youWin(){
-    if(pressed_buttons.length == buttons_memory.length){
-        win = true;
-        continue_playing = true;
-        level += 1;
-        document.getElementById("title").innerHTML = `Level ${level}`;
-        pressed_buttons = [];
-    }
+    win = true;
+    continue_playing = true;
+    level += 1;
+    document.getElementById("title").innerHTML = `Level ${level}`;
+    pressed_buttons = [];
 }
 
 function youLose(){
@@ -123,7 +120,7 @@ function youLose(){
     buttons_memory = [];
     pressed_buttons = [];
     continue_playing = false;
-    level = 1;
+    level = 0;
     document.getElementsByTagName("body")[0].style.backgroundColor = "red";
     document.getElementsByTagName("body")[0].style.opacity = 0.8;    
     setTimeout(() => {document.getElementsByTagName("body")[0].style.backgroundColor = "#021c39";
