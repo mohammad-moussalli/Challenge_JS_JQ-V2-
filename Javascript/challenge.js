@@ -79,42 +79,41 @@ blue_button.addEventListener("click", function(){
     }
 });
 
-
-function continuePlaying(buttons_memory){
-    for(j = 0; j < buttons_memory.length; j++){
-        if(buttons_memory[j] == document.getElementById("blue")){
-            document.getElementById("blue").addEventListener("click", youWin);
-            document.getElementById("blue").addEventListener("click", pressedButton);
+function randomButton(){
+    if(continue_playing == true){
+        var random = Math.floor(Math.random() * 5);
+        buttons_memory.push(random);
+        var button = 1;
+        if(random == 0){
+            var green_audio = new Audio('sounds/green.mp3');
+            green_audio.play();
+            button = document.getElementById("green");
+            button.style.opacity = 0.5;
+            setTimeout(() => {document.getElementById("green").style.opacity = 1;
+            }, 100);
+        }else if(random == 1){
+            var red_audio = new Audio('sounds/red.mp3');
+            red_audio.play();
+            button = document.getElementById("red");
+            button.style.opacity = 0.5;
+            setTimeout(() => {document.getElementById("red").style.opacity = 1;
+            }, 100);
+        }else if(random == 2){
+            var yellow_audio = new Audio('sounds/yellow.mp3');
+            yellow_audio.play();
+            button = document.getElementById("yellow");
+            button.style.opacity = 0.5;
+            setTimeout(() => {document.getElementById("yellow").style.opacity = 1;
+            }, 100);
         }else{
-            document.getElementById("blue").addEventListener("click", youLose);
-            document.getElementById("blue").addEventListener("click", pressedButton);
-        }
-        if(buttons_memory[j] == document.getElementById("green")){
-            document.getElementById("green").addEventListener("click", youWin);
-            document.getElementById("green").addEventListener("click", pressedButton);
-        }else{
-            document.getElementById("green").addEventListener("click", youLose);
-            document.getElementById("green").addEventListener("click", pressedButton);
-        }
-        if(buttons_memory[j] == document.getElementById("red")){
-            document.getElementById("red").addEventListener("click", youWin);
-            document.getElementById("red").addEventListener("click", pressedButton);
-        }else{
-            document.getElementById("red").addEventListener("click", youLose);
-            document.getElementById("red").addEventListener("click", pressedButton);
-        }
-        if(buttons_memory[j] == document.getElementById("yellow")){
-            document.getElementById("yellow").addEventListener("click", youWin);
-            document.getElementById("yellow").addEventListener("click", pressedButton);
-        }else{
-            document.getElementById("yellow").addEventListener("click", youLose);
-            document.getElementById("yellow").addEventListener("click", pressedButton);
+            var blue_audio = new Audio('sounds/blue.mp3');
+            blue_audio.play();
+            button = document.getElementById("blue");
+            button.style.opacity = 0.5;
+            setTimeout(() => {document.getElementById("blue").style.opacity = 1;
+            }, 100);
         }
     }
-
 }
-
-
-    
 
 
