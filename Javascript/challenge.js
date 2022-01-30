@@ -28,7 +28,7 @@ green_button.addEventListener("click", function(){
         green_audio.play();
         pressed_buttons.push(0);
         console.log(pressed_buttons);
-
+        continuePlaying(pressed_buttons.length-1);
     }
 });
 red_button.addEventListener("click", function(){
@@ -40,6 +40,7 @@ red_button.addEventListener("click", function(){
         red_audio.play();
         pressed_buttons.push(1);
         console.log(pressed_buttons);
+        continuePlaying(pressed_buttons.length-1);
     }
 });
 yellow_button.addEventListener("click", function(){
@@ -51,7 +52,7 @@ yellow_button.addEventListener("click", function(){
         yellow_audio.play();
         pressed_buttons.push(2);
         console.log(pressed_buttons);
-
+        continuePlaying(pressed_buttons.length-1);
     }
 });
 blue_button.addEventListener("click", function(){
@@ -63,6 +64,7 @@ blue_button.addEventListener("click", function(){
         blue_audio.play();
         pressed_buttons.push(3);
         console.log(pressed_buttons);
+        continuePlaying(pressed_buttons.length-1);
     }
 });
 
@@ -101,7 +103,8 @@ function randomButton(){
             }, 100);
         }
     }
-    continuePlaying(pressed_buttons.length-1);
+    youWin();
+    pressed_buttons = [];
     console.log(buttons_memory);
 }
 
@@ -111,7 +114,6 @@ function youWin(){
         continue_playing = true;
         level += 1;
         document.getElementById("title").innerHTML = `Level ${level}`;
-        randomButton();
         pressed_buttons = [];
     }
 }
@@ -135,15 +137,11 @@ function youLose(){
 
 function continuePlaying(index){
     if(buttons_memory[index] == pressed_buttons[index]){
-        document.getElementById("green").addEventListener("click", youWin);
-        document.getElementById("red").addEventListener("click", youWin);
-        document.getElementById("yellow").addEventListener("click", youWin);
-        document.getElementById("blue").addEventListener("click", youWin);  
+        if(buttons_memory.length == pressed_buttons.length){
+            randomButton();
+        }  
     }else{
-        document.getElementById("green").addEventListener("click", youLose);
-        document.getElementById("red").addEventListener("click", youLose);
-        document.getElementById("yellow").addEventListener("click", youLose);
-        document.getElementById("blue").addEventListener("click", youLose);        
+        youLose();       
     }
 }
         
