@@ -49,6 +49,7 @@ green_button.addEventListener("click", function(){
         }, 70);
         var green_audio = new Audio('sounds/green.mp3');
         green_audio.play();
+        pressed_buttons.push("0");
     }
 });
 red_button.addEventListener("click", function(){
@@ -58,6 +59,7 @@ red_button.addEventListener("click", function(){
         }, 70);
         var red_audio = new Audio('sounds/red.mp3');
         red_audio.play();
+        pressed_buttons.push("1");
     }
 });
 yellow_button.addEventListener("click", function(){
@@ -67,6 +69,7 @@ yellow_button.addEventListener("click", function(){
         }, 70);
         var yellow_audio = new Audio('sounds/yellow.mp3');
         yellow_audio.play();
+        pressed_buttons.push("2");
     }
 });
 blue_button.addEventListener("click", function(){
@@ -76,6 +79,7 @@ blue_button.addEventListener("click", function(){
         }, 70);
         var blue_audio = new Audio('sounds/blue.mp3');
         blue_audio.play();
+        pressed_buttons.push("3");
     }
 });
 
