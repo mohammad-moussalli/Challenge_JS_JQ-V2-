@@ -99,11 +99,11 @@ function randomButton(){
 }
 
 function youWin(){
-        win = true;
-        continue_playing = true;
-        level++;
-        $("#title").html(`Level ${level}`);
-        pressed_buttons = [];
+    win = true;
+    continue_playing = true;
+    level++;
+    $("#title").html(`Level ${level}`);
+    pressed_buttons = [];
 }
 
 function youLose(){
